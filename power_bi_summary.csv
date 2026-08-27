@@ -1,0 +1,11 @@
+Metric_Name,Metric_Value
+Total Samples,36
+Total Genes/Features,7464
+Missing Values,0
+Duplicate Rows,Removed
+Constant Features Removed,Removed
+Target Column Cleaned,Yes
+Data Quality Status,Excellent
+Data Types,Gene Expression (Microarray - int64)
+Feature Selection Method,SelectKBest (f_classif)
+Model Used,LogisticRegression

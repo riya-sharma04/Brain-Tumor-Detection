@@ -1,0 +1,5 @@
+Actual,Predicted,Count
+Normal,Normal,4
+Normal,Tumor,0
+Tumor,Normal,0
+Tumor,Tumor,4
