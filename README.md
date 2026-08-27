@@ -1,25 +1,27 @@
-🧠 Brain Tumor Detection using Machine Learning
+# 🧠 Brain Tumor Detection using Machine Learning
 
-A machine learning project for binary classification of brain tumor cases using a structured numerical dataset. The project covers data inspection, preprocessing, exploratory data analysis, feature selection, feature scaling, Logistic Regression model training, and performance evaluation.
+A machine learning project for **binary classification of brain tumor cases** using a structured numerical dataset. The project covers data inspection, preprocessing, exploratory data analysis, feature selection, feature scaling, Logistic Regression model training, and performance evaluation.
 
-The project was developed in Python using Google Colab, with the final results visualized through a Power BI dashboard.
+The project was developed in **Python using Google Colab**, with the final results visualized through a **Power BI dashboard**.
 
+---
 
-📌 Project Overview
+## 📌 Project Overview
 
 The objective of this project is to build a machine learning classification model that distinguishes between two classes:
 
-* Normal
-* Tumor
+* **Normal**
+* **Tumor**
 
 The dataset contains a relatively small number of samples but a very large number of numerical features. To handle this high-dimensional structure, the workflow applies feature selection and scaling before training the classification model.
 
 The complete machine learning workflow is:
 
-Dataset → Data Inspection → Data Cleaning → Exploratory Data Analysis → Train-Test Split → Feature Selection → Feature Scaling → Logistic Regression → Prediction → Model Evaluation
+**Dataset → Data Inspection → Data Cleaning → Exploratory Data Analysis → Train-Test Split → Feature Selection → Feature Scaling → Logistic Regression → Prediction → Model Evaluation**
 
+---
 
-🎯 Objectives
+## 🎯 Objectives
 
 * Inspect and understand the dataset structure.
 * Clean and prepare the target variable.
@@ -34,8 +36,9 @@ Dataset → Data Inspection → Data Cleaning → Exploratory Data Analysis → 
 * Evaluate the model using multiple performance metrics.
 * Present the project results through an interactive Power BI dashboard.
 
+---
 
-📊 Dataset
+## 📊 Dataset
 
 The project uses `data.csv` as the input dataset.
 
@@ -56,12 +59,13 @@ The initial dataset inspection shows **36 rows and 7,466 columns**, consisting o
 
 After separating the target variable, the feature matrix contains **7,465 features**, while the target contains 36 values.
 
+---
 
-🧹 Data Preprocessing
+## 🧹 Data Preprocessing
 
 The notebook performs basic data cleaning before model development.
 
-1. Target Cleaning
+### 1. Target Cleaning
 
 The target column `y` is:
 
@@ -74,20 +78,21 @@ The mapping used is:
 * `tumor → 1`
 * `normal → 0`
 
-2. Duplicate Removal
+### 2. Duplicate Removal
 
 Duplicate rows are removed using `drop_duplicates()`.
 
-3. Constant Feature Removal
+### 3. Constant Feature Removal
 
 Columns containing only a single unique value are removed using a uniqueness check.
 
-4. Missing Value Check
+### 4. Missing Value Check
 
 The notebook checks the dataset for missing values before proceeding with machine learning.
 
+---
 
-🔍 Exploratory Data Analysis
+## 🔍 Exploratory Data Analysis
 
 Exploratory analysis was performed to understand the dataset and relationships between numerical features.
 
@@ -107,20 +112,21 @@ A correlation heatmap is also created for the first 10 numerical features.
 
 The boxplot similarly examines the first 10 features and their value distributions.
 
+---
 
-✂️ Feature Selection
+## ✂️ Feature Selection
 
-Because the dataset contains 7,465 features, feature selection is applied before model training.
+Because the dataset contains **7,465 features**, feature selection is applied before model training.
 
 The notebook uses:
 
-`SelectKBest` + `f_classif`
+**`SelectKBest` + `f_classif`**
 
 with:
 
-python
+```python
 k = 50
-
+```
 
 This reduces the feature space from:
 
@@ -128,25 +134,26 @@ This reduces the feature space from:
 
 The notebook output confirms the original feature count as 7,465 and the selected feature count as 50.
 
+---
 
- 📏 Feature Scaling
+## 📏 Feature Scaling
 
 After feature selection, the selected features are standardized using:
 
-`StandardScaler`
+**`StandardScaler`**
 
 The scaler is fitted on the training data and then applied to both training and testing data.
 
 This produces:
 
-* Training data: 28 × 50
-* Testing data: 8 × 50
+* Training data: **28 × 50**
+* Testing data: **8 × 50**
 
 The scaling step uses `fit_transform()` on the training features and `transform()` on the test features.
 
+---
 
-
-🧪 Train-Test Split
+## 🧪 Train-Test Split
 
 The dataset is divided into training and testing sets using `train_test_split()`.
 
@@ -162,27 +169,28 @@ Configuration:
 
 The notebook explicitly uses `test_size=0.20`, `random_state=42`, and `stratify=y`.
 
+---
 
-🤖 Machine Learning Model
+## 🤖 Machine Learning Model
 
-Logistic Regression
+### Logistic Regression
 
-The selected and scaled features are used to train a Logistic Regression classification model.
+The selected and scaled features are used to train a **Logistic Regression** classification model.
 
 Model configuration:
 
-python
-LogisticRegression
-(
+```python
+LogisticRegression(
     max_iter=1000,
     random_state=42
 )
-
+```
 
 The model is trained using the scaled training data.
 
+---
 
-📈 Model Evaluation
+## 📈 Model Evaluation
 
 The trained model generates predictions for the test dataset.
 
@@ -194,15 +202,15 @@ The following evaluation metrics are calculated:
 * F1 Score
 * Mean Squared Error (MSE)
 
-Results
+### Results
 
-| Metric    |       Score |
-| --------- | ----------: |
-| Accuracy  | 1.00 (100%) |
-| Precision | 1.00 (100%) |
-| Recall    | 1.00 (100%) |
-| F1 Score  | 1.00 (100%) |
-| MSE       |        0.00 |
+| Metric    |           Score |
+| --------- | --------------: |
+| Accuracy  | **1.00 (100%)** |
+| Precision | **1.00 (100%)** |
+| Recall    | **1.00 (100%)** |
+| F1 Score  | **1.00 (100%)** |
+| MSE       |        **0.00** |
 
 ## These are the reported notebook results.
 
@@ -214,27 +222,28 @@ The notebook also generates a detailed classification report for the two classes
 | ------------ | --------: | -------: | -------: | ------: |
 | Normal       |      1.00 |     1.00 |     1.00 |       4 |
 | Tumor        |      1.00 |     1.00 |     1.00 |       4 |
-| Accuracy     |      1.00 |     1.00 |     1.00 |       8 |
+| **Accuracy** |  **1.00** | **1.00** | **1.00** |   **8** |
 
 The test set contains 8 samples, with 4 Normal and 4 Tumor cases.
 
+---
 
-🎯 Confusion Matrix
+## 🎯 Confusion Matrix
 
 A confusion matrix is generated using the actual test labels and model predictions.
 
 The matrix uses:
 
-* Actual: Normal / Tumor
-* Predicted: Normal / Tumor
+* **Actual:** Normal / Tumor
+* **Predicted:** Normal / Tumor
 
 and is visualized as a heatmap using Seaborn.
 
 The test-set classification results show that all 8 test samples were classified correctly.
 
+---
 
-
-📊 Project Summary
+## 📊 Project Summary
 
 | Category          | Result              |
 | ----------------- | ------------------- |
@@ -254,13 +263,13 @@ The test-set classification results show that all 8 test samples were classified
 
 These values correspond to the final summary produced inside the notebook.
 
+---
 
+## 📊 Power BI Dashboard
 
-📊 Power BI Dashboard
+The machine learning results were further presented through an interactive **Power BI dashboard**.
 
-The machine learning results were further presented through an interactive Power BI dashboard.
-
-Power BI is used as a visualization and reporting layer for the project rather than as part of the Python machine learning pipeline.
+Power BI is used as a **visualization and reporting layer** for the project rather than as part of the Python machine learning pipeline.
 
 The dashboard presents information such as:
 
@@ -278,26 +287,26 @@ The dashboard presents information such as:
 
 The dashboard is organized into four main pages:
 
-1. Overview
-2. Data & Preprocessing
-3. Model Performance
-4. Insights & Summary
+1. **Overview**
+2. **Data & Preprocessing**
+3. **Model Performance**
+4. **Insights & Summary**
 
+---
 
+## 🛠️ Technologies Used
 
-🛠️ Technologies Used
+### Programming & Analysis
 
-Programming & Analysis
+* **Python**
+* **Pandas**
+* **NumPy**
+* **Matplotlib**
+* **Seaborn**
 
-* Python
-* Pandas
-* NumPy
-* Matplotlib
-* Seaborn
+### Machine Learning
 
-Machine Learning
-
-* Scikit-learn
+* **Scikit-learn**
 
   * `train_test_split`
   * `SelectKBest`
@@ -312,18 +321,19 @@ Machine Learning
   * `confusion_matrix`
   * `mean_squared_error`
 
- Development Environment
+### Development Environment
 
-* Google Colab
+* **Google Colab**
 
-Visualization & Reporting
+### Visualization & Reporting
 
-* Microsoft Power BI
+* **Microsoft Power BI**
 
+---
 
-📁 Project Structure
+## 📁 Project Structure
 
-text
+```text
 Brain-Tumor-Detection/
 │
 ├── brain_tumor_updated(4).ipynb
@@ -333,14 +343,15 @@ Brain-Tumor-Detection/
 │
 └── Power BI Dashboard/
     └── Dashboard screenshots / report files
-
+```
 
 > `cleaned_data.csv` is generated from the cleaned dataframe in the notebook and downloaded from the Colab environment.
 
+---
 
-🔄 Project Workflow
+## 🔄 Project Workflow
 
-text
+```text
                  ┌──────────────────┐
                  │    data.csv      │
                  └────────┬─────────┘
@@ -398,35 +409,38 @@ text
                  │  Power BI        │
                  │  Dashboard       │
                  └──────────────────┘
+```
 
+---
 
- Key Takeaways
+## 💡 Key Takeaways
 
-* The dataset contains 36 samples and 7,465 feature columns after separating the target.
-* The target contains two classes: Normal and Tumor.
-* The classes are balanced with 18 Normal and 18 Tumor cases.
-* Feature selection reduces the dimensionality from 7,465 to 50 features.
+* The dataset contains **36 samples and 7,465 feature columns** after separating the target.
+* The target contains two classes: **Normal** and **Tumor**.
+* The classes are balanced with **18 Normal and 18 Tumor cases**.
+* Feature selection reduces the dimensionality from **7,465 to 50 features**.
 * StandardScaler is applied before Logistic Regression.
-* The dataset is split into 28 training samples and 8 testing samples.
-* Logistic Regression achieved 1.00 accuracy, precision, recall, and F1 score on the reported test set.
-* The reported **MSE is 0.0.
+* The dataset is split into **28 training samples and 8 testing samples**.
+* Logistic Regression achieved **1.00 accuracy, precision, recall, and F1 score** on the reported test set.
+* The reported **MSE is 0.0**.
 * The results are presented in a dedicated Power BI dashboard for interactive analysis.
 
+---
 
+## ⚠️ Note
 
-⚠️ Note
+This project demonstrates a machine learning workflow on the available dataset and its reported test-set results. The dataset contains only **36 samples**, so the reported 100% test performance should not be interpreted as evidence of clinical-grade diagnostic performance or generalization to unseen real-world medical populations.
 
-This project demonstrates a machine learning workflow on the available dataset and its reported test-set results. The dataset contains only 36 samples, so the reported 100% test performance should not be interpreted as evidence of clinical-grade diagnostic performance or generalization to unseen real-world medical populations.
+This project is intended for **educational and machine learning demonstration purposes**.
 
-This project is intended for **educational and machine learning demonstration purposes.
+---
 
+## 👩‍💻 Author
 
-👩‍💻 Author
-
-Riya Sharma
+**Riya Sharma**
 
 BCA Student | Data Science & AI/ML Enthusiast
 
-GitHub: riya-sharma04
+**GitHub:** `riya-sharma04`
 
-LinkedIn: riya-sharma-218834379
+**LinkedIn:** `riya-sharma-218834379`
